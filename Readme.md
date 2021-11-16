@@ -29,12 +29,12 @@ the one with lower instruction, we assume that all instruction include the same 
 
 Sorting algorithm are often separated in two group, those who tend to have a quadratic complexity and those who have a quasi-linear complexity.
 
-##Sorting algorithm
+## Sorting algorithm
 
-###Selection sort :
+### Selection sort :
 	selection sort find the lowest element of the stack, rotate to it and push it on stack b.  When all element are push to b the stack b is sorted from highest to lowest and you just need to push every element back to stack 'a' 
 
-###Insertion sort :
+### Insertion sort :
 	insertion sort start by putting an element in stack b,
 if next element (we will call him '2a')  is higher than all stack b it is pushed then rotated
 else element in b are rotated until '2a' fit higher than first element but lower than last (or lowest of the stack)
@@ -42,7 +42,7 @@ Redo until stack b is sorted by decreasin order and push all node to a
 
 ---
 
-###Quicksort :
+### Quicksort :
 	Quicksort use divide and conquer strategy dividing input in sublist and
 sorting middle element recursivly till divided part is large enough.
 
@@ -51,24 +51,24 @@ of temporal complexity with these algorithm
 
 ---
 
-##Extra
+## Extra
 
-###Quicksort Pivot choose :
+### Quicksort Pivot choose :
 	divided stack part is exported as an array and sorted using an implemented quicksort
 to find best pivot picking middle element of sorted part
 
-###Part sorting algorithm : hiatus
+### Part sorting algorithm : hiatus
 	Quadratic Part sorting algorithm is provided to sort small divided part where
 quicksort pivot optimized is less effective. it is actually on hiatus because non optimized
 quadratic sort are not more effective and a lot of work for small result should not hinder
 school cursus progression
 
-###Launching script : WIP
+### Launching script : WIP
 	A script is provided to test binary. It generate n random number 
 (only positive, negative number error checking should be done manually) and test
 input with both bonus checker and linux-checker. WIP because it should not be error-prone
 
-###Review :
+### Review :
 	I liked this project because it made me realise the importance of strategy.
 - You should always think project globally before implementing it. A lot of tactics and technical sugar don't replace a well thinked strategy.
 
