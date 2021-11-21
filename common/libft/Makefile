@@ -6,7 +6,7 @@
 #    By: iguidado <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/18 11:15:40 by iguidado          #+#    #+#              #
-#    Updated: 2021/10/28 23:51:48 by iguidado         ###   ########.fr        #
+#    Updated: 2021/11/21 18:10:50 by iguidado         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,6 @@ SRC = $(S_OUT) \
       $(S_BIT) \
       $(S_UTIL)\
       $(S_GNL)
-
 
 SRCS =	$(addprefix $(D_OUT)/, $(S_OUT)) \
 	$(addprefix $(D_LST)/, $(S_LST)) \
