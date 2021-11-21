@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_link_op.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/17 16:41:54 by iguidado          #+#    #+#             */
+/*   Updated: 2021/11/17 16:42:14 by iguidado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "common.h"
 
 t_stacks_op	ft_get_op(char *op)
 {
-	int i;
-	static t_op_id op_table[] =
+	int				i;
+	static t_op_id	op_table[] =
 	{
 		{"pa", ft_pa_wrap}, {"sa", ft_sa_wrap},
 		{"ra", ft_ra_wrap}, {"rra", ft_rra_wrap},

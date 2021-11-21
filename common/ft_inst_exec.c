@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_inst_exec.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/17 16:41:49 by iguidado          #+#    #+#             */
+/*   Updated: 2021/11/17 17:03:09 by iguidado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "common.h"
 
 t_op_id	*ft_get_op_id(char *op)
 {
-	static t_op_id op_table[] =
+	static t_op_id	op_table[] =
 	{
 		{"pa", ft_pa_wrap}, {"sa", ft_sa_wrap},
 		{"ra", ft_ra_wrap}, {"rra", ft_rra_wrap},
@@ -11,7 +23,7 @@ t_op_id	*ft_get_op_id(char *op)
 		{"ss", ft_ss_wrap}, {"rr", ft_rr_wrap},
 		{"rrr", ft_rrr_wrap}, {NULL, NULL}
 	};
-	int i;
+	int				i;
 
 	i = 0;
 	while (op_table[i].ft_op_wrap)
@@ -29,12 +41,14 @@ t_list	*ft_instadd_back(t_list *lst, char *inst)
 	char	*value;
 
 	new = NULL;
-	if (!(value = ft_strdup(inst)))
+	value = ft_strdup(inst);
+	if (!(value))
 	{
 		ft_lstclear(&lst, free);
 		return (NULL);
 	}
-	if (!(new = ft_lstnew(value)))
+	new = ft_lstnew(value);
+	if (!(new))
 	{
 		free(value);
 		ft_lstclear(&lst, free);
@@ -47,9 +61,10 @@ t_list	*ft_instadd_back(t_list *lst, char *inst)
 t_list	*ft_exec_op(t_list *insts, t_stack **a, t_stack **b, char *id)
 {
 	t_list	*new;
-	t_op_id *op_id;
+	t_op_id	*op_id;
 
-	if (!(op_id = ft_get_op_id(id)))
+	op_id = ft_get_op_id(id);
+	if (!(op_id))
 	{
 		ft_lstclear(&insts, free);
 		return (NULL);

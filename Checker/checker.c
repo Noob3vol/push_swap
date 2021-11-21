@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 20:09:54 by iguidado          #+#    #+#             */
+/*   Updated: 2021/11/20 20:09:55 by iguidado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "common.h"
 #include "push_swap.h"
 #include "checker.h"
@@ -25,7 +37,7 @@ void	ft_check_stack_sort(t_stack *a, t_stack *b)
 
 void	ft_print_arg(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (++i < ac)
@@ -34,16 +46,17 @@ void	ft_print_arg(int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 	t_list	*inst;
 
 	b = NULL;
 	inst = NULL;
 	if (ac == 1)
 		return (0);
-	if (!(a = ft_store_stack(ac - 1, &av[1])))
-		return(-1);
+	a = ft_store_stack(ac - 1, &av[1]);
+	if (!(a))
+		return (-1);
 	if (!(ft_store_inst(&inst)))
 		return (-1);
 	if (inst)
@@ -54,7 +67,6 @@ int	main(int ac, char **av)
 			return (-1);
 		}
 	}
-//	ft_print_stacks(a, b);
 	ft_check_stack_sort(a, b);
 	ft_lstclear(&inst, (void (*)(void *))free);
 	return (0);

@@ -43,19 +43,16 @@ Redo until stack b is sorted by decreasin order and push all node to a
 ---
 
 ### Quicksort :
-	Quicksort use divide and conquer strategy dividing input in sublist and
-sorting middle element recursivly till divided part is large enough.
+	Quicksort use divide and conquer strategy dividing input in sublist and sorting middle element recursivly.
 
-Optimisation include pivot choose and using quadratic sort to counter explosion
-of temporal complexity with these algorithm
+Optimisation include pivot choose and using quadratic sort to counter explosion of temporal complexity with these algorithm.
 
 ---
 
 ## Extra
 
 ### Quicksort Pivot choose :
-	divided stack part is exported as an array and sorted using an implemented quicksort
-to find best pivot picking middle element of sorted part
+	divided stack part is exported as an array and sorted using an implemented quicksort to find best pivot picking middle element of sorted part
 
 ### Part sorting algorithm : hiatus
 	Quadratic Part sorting algorithm is provided to sort small divided part where

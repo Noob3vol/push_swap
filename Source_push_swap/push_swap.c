@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:34:13 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/16 06:25:55 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/17 03:08:58 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ t_list	*ft_get_inst(t_stack **a, int index)
 		NULL};
 
 	if (!ft_sort[index])
-	{
 		return (NULL);
-	}
 	inst = ft_sort[index](a);
 	return (inst);
 }
@@ -88,12 +86,11 @@ int	main(int ac, char **av)
 		return (-1);
 	if (!ft_stack_issort(a))
 	{
-//		if (ac > 130)
+		if (ac > 130)
 			inst = ft_launch_quicksort(&a);
-//		else
-//			inst = ft_choose(&a);
+		else
+			inst = ft_choose(&a);
 	}
-	//ft_print_stacks(a, NULL);
 	ft_lstiter(inst, ft_print_inst);
 	ft_lstclear(&inst, (void (*)(void *))free);
 	return (0);

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stack_op.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/17 16:43:13 by iguidado          #+#    #+#             */
+/*   Updated: 2021/11/17 16:54:17 by iguidado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "stack.h"
 
 void	ft_push_stack(t_stack **to_stack, t_stack **from_stack)
 {
-	t_stack *prev_to;
+	t_stack	*prev_to;
 
 	if (!*from_stack)
 		return ;
@@ -14,7 +26,7 @@ void	ft_push_stack(t_stack **to_stack, t_stack **from_stack)
 
 void	ft_rotate_stack(t_stack **stack)
 {
-	t_stack *crawl;
+	t_stack	*crawl;
 
 	if (ft_stack_depth(*stack) < 2)
 		return ;
@@ -28,8 +40,8 @@ void	ft_rotate_stack(t_stack **stack)
 
 void	ft_rev_rotate_stack(t_stack **stack)
 {
-	t_stack *crawl;
-	t_stack *prev;
+	t_stack	*crawl;
+	t_stack	*prev;
 
 	if (ft_stack_depth(*stack) < 2)
 		return ;
@@ -46,8 +58,8 @@ void	ft_rev_rotate_stack(t_stack **stack)
 
 void	ft_swap_stack(t_stack **stack)
 {
-	t_stack *prev_prev;
-	t_stack *prev;
+	t_stack	*prev_prev;
+	t_stack	*prev;
 
 	if (ft_stack_depth(*stack) < 2)
 		return ;
@@ -57,11 +69,3 @@ void	ft_swap_stack(t_stack **stack)
 	prev->prev = (*stack);
 	*stack = prev;
 }
-
-/*
-**	void	ft_pa(t_stack **a, t_stack **b)
-**	{
-**		if (
-**		ft_push_stack(b, a);
-**	}
-*/

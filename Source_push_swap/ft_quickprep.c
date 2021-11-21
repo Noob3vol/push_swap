@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:33:27 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/16 06:21:08 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/19 14:54:19 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_print_part(t_stack *head, t_stack *begin, t_stack *end)
 */
 int	ft_mng_excep(t_stack **head, t_stack *beg, t_stack *end, t_list **inst)
 {
-	int		part_len;
+	int			part_len;
 	t_list		*inst_added;
 
 	part_len = ft_stack_ruler(*head, beg, end);
@@ -50,7 +50,7 @@ int	ft_mng_excep(t_stack **head, t_stack *beg, t_stack *end, t_list **inst)
 
 int	ft_quickprep(t_stack **head, t_stack *beg, t_stack *end, t_list **inst)
 {
-	if (beg == end || ft_stack_part_ordered(*head, beg, end))
+	if (beg == end || ft_stkprt_ordered(*head, beg, end))
 	{
 		if (!(*inst))
 			(*inst) = ft_instadd_back(*inst, "");

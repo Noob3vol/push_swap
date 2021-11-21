@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stack.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/17 16:42:44 by iguidado          #+#    #+#             */
+/*   Updated: 2021/11/17 16:55:38 by iguidado         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "stack.h"
 
-t_stack *ft_init_stack(int value, t_stack *prev)
+t_stack	*ft_init_stack(int value, t_stack *prev)
 {
-	t_stack *new;
+	t_stack	*new;
 
-	if (!(new = (t_stack *)malloc(sizeof(t_stack))))
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!(new))
 		return (NULL);
 	new->prev = prev;
 	new->nbr = value;
@@ -13,7 +26,7 @@ t_stack *ft_init_stack(int value, t_stack *prev)
 
 void	ft_free_stack(t_stack **stack)
 {
-	t_stack *prev;
+	t_stack	*prev;
 
 	while (*stack)
 	{
@@ -22,17 +35,3 @@ void	ft_free_stack(t_stack **stack)
 		*stack = prev;
 	}
 }
-
-/*
-**	int	ft_push_value(int value, t_stack **stack)
-**	{
-**		t_stack *prev;
-**		
-**		prev = *stack;
-**		if (!(*stack = (t_stack *)malloc(sizeof(t_stack))))
-**			return (-1);
-**		(*stack)->prev = prev;
-**		(*stack)->nbr = value;
-**		return (0);
-**	}
-*/

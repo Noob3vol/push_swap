@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:16:27 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/10 16:03:43 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/20 20:01:35 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 ** Also including of quicksort mean i need to adapt my quicksort
 ** Else it is going to infinite call quicksort
 */
-t_stack_part	ft_copy_part(t_stack *a, t_stack *begin, t_stack *end)
+t_stkprt	ft_copy_part(t_stack *a, t_stack *begin, t_stack *end)
 {
-	t_stack_part	copy_part;
-	t_stack			*node;
-	t_stack			*copy;
+	t_stkprt	copy_part;
+	t_stack		*node;
+	t_stack		*copy;
 
 	copy = ft_copy_stack(a);
 	copy_part.head = &copy;
@@ -40,7 +40,7 @@ t_stack_part	ft_copy_part(t_stack *a, t_stack *begin, t_stack *end)
 	return (copy_part);
 }
 
-int	ft_try_part_sort(t_stack_part *prt_cpy, t_list **inst,
+int	ft_try_part_sort(t_stkprt *prt_cpy, t_list **inst,
 		t_list *(*ft_partsort)(t_stack **, t_stack *, t_stack *))
 {
 	t_list	*next_inst;
@@ -58,7 +58,7 @@ int	ft_try_part_sort(t_stack_part *prt_cpy, t_list **inst,
 int	ft_choose_part_sort(t_stack **a, t_stack **beg,
 		t_stack **end, t_list **inst)
 {
-	t_stack_part	part_copy;
+	t_stkprt		part_copy;
 	t_list			*curr_inst;
 	static t_list	*(*ft_part_sort[])(t_stack **, t_stack *, t_stack *) = {
 		ft_part_sort_bubble,

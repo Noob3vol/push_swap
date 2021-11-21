@@ -31,7 +31,7 @@ int	ft_node_ordered(t_stack *head, t_stack *node)
 	return (0);
 }
 
-int	ft_stack_part_ordered(t_stack *head, t_stack *begin, t_stack *end)
+int	ft_stkprt_ordered(t_stack *head, t_stack *begin, t_stack *end)
 {
 	while (begin && begin != end)
 	{

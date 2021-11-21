@@ -6,11 +6,12 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 13:51:24 by iguidado          #+#    #+#             */
-/*   Updated: 2019/11/05 18:36:40 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/20 18:25:34 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <unistd.h>
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
@@ -33,18 +34,14 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*
-**	void	ft_strcpy(char *, char *);
-**	void	ft_print_memory(voiiiiid *, int);
+/*	
 **	int	main(void)
 **	{
-**		char hello[20];
-**		char dest[20];
-**
-**		ft_strcpy(hello, "Hello World !");
-**		ft_memccpy(dest, hello, 'W', 10);
-**		ft_print_memory(dest, 10);
+**		char hello[] = "HELLO";
+**		char world[5] = "";
+**	
+**		ft_memccpy(world, hello, 'B', 10);
+**		write(1, world, 5);
 **		return (0);
 **	}
 */

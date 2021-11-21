@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 03:27:34 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/11 04:34:52 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/19 15:03:53 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_stack		*ft_stack_index_mod(t_stack *stk, int index);
 */
 int			ft_stack_ordered(t_stack *a);
 int			ft_node_ordered(t_stack *a, t_stack *node);
-int			ft_stack_part_ordered(t_stack *head, t_stack *begin, t_stack *end);
+int			ft_stkprt_ordered(t_stack *head, t_stack *begin, t_stack *end);
 
 /*
 ** Node detection
@@ -122,15 +122,21 @@ t_stack		*ft_stkpart_choose_pivot(t_stack *begin, t_stack *end);
 ** ft_part_checker
 */
 int			ft_part_check_h(t_stack *head, t_stack *pivot, t_stack *end);
-int			ft_part_check(t_stack **a, t_stack *beg, t_stack *end, t_stack *piv);
-int			ft_check_pivot_parted(t_stack *head, t_stack *pivot, t_stack *end);
+
+int			ft_part_check(t_stack **a, t_stack *beg, t_stack *end,
+				t_stack *piv);
+
+int			ft_check_pivot_parted(t_stack *head, t_stack *pivot,
+				t_stack *end);
 
 /*
 ** ft_quickprep : use all function above to check which quicksort operation
 ** is needed 
 */
-int			ft_mng_excep(t_stack **head, t_stack *beg, t_stack *end, t_list **inst);
-int			ft_quickprep(t_stack **head, t_stack *beg, t_stack *end, t_list **inst);
+int			ft_mng_excep(t_stack **head, t_stack *beg, t_stack *end,
+				t_list **inst);
+int			ft_quickprep(t_stack **head, t_stack *beg, t_stack *end,
+				t_list **inst);
 
 /*
 ** Choose pivot is done by quicksorting the part in tab and
@@ -169,7 +175,7 @@ t_list		*ft_quickrec(t_stack **head, t_stack *beg, t_stack *end,
 				t_stack *piv);
 
 /*
-** ft_quickpivot : decide what you should do with each node and keep part
+** ft_stack_quickpart : decide what you should do with each node and keep part
 ** integrity
 */
 int			ft_quickpiv(t_stack **a, t_stack **b,
@@ -181,10 +187,12 @@ int			ft_quickpivot_l(t_stack **a, t_stack **b,
 int			ft_quickpivot_h(t_stack **a, t_stack **b,
 				t_stkpart *nfo, t_list **inst);
 
+int			ft_quickpart(t_stack **a, t_stkpart *part_nfo, t_list **inst);
+
 /*
 ** Quicksort
 */
-int			ft_quickpart(t_stack **a, t_stkpart *part_nfo, t_list **inst);
+int			ft_quickpart_rec(t_stack **head, t_stkpart *nfo, t_list **inst);
 t_list		*ft_stack_quicksort(t_stack **head, t_stack *begin, t_stack *end);
 t_stack		*ft_stack_choose_pivot(t_stack *begin, t_stack *end);
 t_list		*ft_launch_quicksort(t_stack **a);
@@ -197,21 +205,21 @@ t_list		*ft_launch_quicksort(t_stack **a);
 ** Not used actually since sort algorithm need optimization and
 ** a function choosing algorithm
 */
-typedef	struct	s_stack_part
+typedef struct s_stack_part
 {
 	t_stack		**head;
 	t_stack		*begin;
 	t_stack		*end;
-}				t_stack_part;
+}				t_stkprt;
 
 /*
 ** ft_choose_part_sort : WIP
 */
-t_stack_part	ft_copy_part(t_stack *a, t_stack *begin, t_stack *end);
-int				ft_try_part_sort(t_stack_part *part_copy, t_list **inst,
-   					t_list *(*ft_partsort)(t_stack **, t_stack *, t_stack *));
-int				ft_choose_part_sort(t_stack **a, t_stack **beg, t_stack **end,
-					t_list **inst);
+t_stkprt	ft_copy_part(t_stack *a, t_stack *begin, t_stack *end);
+int			ft_try_part_sort(t_stkprt *part_copy, t_list **inst,
+				t_list *(*ft_partsort)(t_stack **, t_stack *, t_stack *));
+int			ft_choose_part_sort(t_stack **a, t_stack **beg, t_stack **end,
+				t_list **inst);
 
 /*
 ** ft_part_bubblesort : sorting small sublist
@@ -235,7 +243,8 @@ t_list		*ft_part_srt_insrt(t_stack **a, t_stack *end);
 ** can be optimized by pushing until part is sorted then you push
 ** everything back on top of part
 */
-t_list		*ft_qkslct_min(t_stack **a, t_stack **b, t_stack **beg, t_stack **end);
+t_list		*ft_qkslct_min(t_stack **a, t_stack **b,
+				t_stack **beg, t_stack **end);
 t_list		*ft_part_srt_slct(t_stack **a, t_stack *beg, t_stack *end);
 
 #endif

@@ -68,7 +68,7 @@ t_list	*ft_bubble_sort_max_part(t_stack **a, t_stack *beg, t_stack *end)
 	t_list	*node;
 
 	inst = NULL;
-	while (!ft_stack_part_ordered(*a, beg, end))
+	while (!ft_stkprt_ordered(*a, beg, end))
 	{
 		node = ft_part_swap_unordered(a, &beg, &end);
 		if (!(node))

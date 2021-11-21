@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 22:59:54 by iguidado          #+#    #+#             */
-/*   Updated: 2020/02/07 23:03:36 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/20 18:27:24 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_print_addrhex_n(unsigned long nbr, unsigned int n)
 
 static void	ft_print_strhex_n(unsigned char *str, unsigned int n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < 16)
@@ -52,15 +52,18 @@ static void	ft_printmem_str_format(unsigned char *str, unsigned int size)
 	}
 }
 
-void		*ft_print_memory(void *addr, unsigned int size)
+void	*ft_print_memory(void *addr, unsigned int size)
 {
-	unsigned int i;
-	unsigned int str_len;
+	unsigned int	i;
+	unsigned int	str_len;
 
 	i = 0;
 	while (i < size)
 	{
-		str_len = ((size - i) < 16 ? (size - i) : 16);
+		if (size - i < 16)
+			str_len = (size - i);
+		else
+			str_len = 16;
 		ft_print_addrhex_n((long)&addr[i], 16);
 		write(1, " :", 2);
 		ft_print_strhex_n((unsigned char *)&addr[i], str_len);

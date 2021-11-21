@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 13:57:51 by iguidado          #+#    #+#             */
-/*   Updated: 2019/11/26 18:08:17 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/20 04:05:05 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t length;
+	size_t	length;
 
 	length = 0;
 	while (s[length])

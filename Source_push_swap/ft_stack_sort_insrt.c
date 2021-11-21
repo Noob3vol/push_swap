@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:41:29 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/02 13:26:06 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/18 05:09:05 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ t_list	*ft_stack_srt_insrt(t_stack **a)
 
 	b = NULL;
 	inst = ft_exec_op(NULL, a, &b, "pb");
-	while (*a)
+	while ((*a))
 	{
 		next = ft_stack_lower((*a)->nbr, b);
 		inst = ft_srt_insrt_nbr(a, &b, inst, next);

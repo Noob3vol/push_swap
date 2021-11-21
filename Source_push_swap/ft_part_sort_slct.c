@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 23:14:30 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/10 14:58:27 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/17 02:51:47 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_list	*ft_part_srt_slct(t_stack **a, t_stack *beg, t_stack *end)
 	b = NULL;
 	inst = NULL;
 	while (ft_node_detect(*a, beg, end, beg->prev)
-			&& ft_stack_part_ordered(*a, beg, end))
+		&& ft_stkprt_ordered(*a, beg, end))
 	{
 		node = ft_qkslct_min(a, &b, &beg, &end);
 		if (!ft_instjoin(&inst, node))

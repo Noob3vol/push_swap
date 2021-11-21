@@ -45,6 +45,7 @@ PUSH_SRC = ft_inst_utils.c \
 	ft_stack_sort_slct.c \
 	ft_stack_sort_insrt.c \
 	ft_quickprep.c \
+	ft_stack_quickpart.c \
 	ft_part_gather_info.c \
 	ft_part_checker.c \
 	ft_part_init_info.c \

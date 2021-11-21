@@ -6,16 +6,16 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 07:48:14 by iguidado          #+#    #+#             */
-/*   Updated: 2019/11/25 21:28:12 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/20 18:25:59 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static	void	*ft_clear_lst(t_list *l, t_list *last, void (*del)(void *))
+static void	*ft_clear_lst(t_list *l, t_list *last, void (*del)(void *))
 {
-	t_list *next;
+	t_list	*next;
 
 	next = NULL;
 	while (l != last)
@@ -28,33 +28,34 @@ static	void	*ft_clear_lst(t_list *l, t_list *last, void (*del)(void *))
 	}
 	del(l->content);
 	free(l);
-	return (l = NULL);
+	return (NULL);
 }
 
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new;
-	t_list *crawl;
+	t_list	*new;
+	t_list	*crawl;
 
+	if (!lst)
+		return (NULL);
 	new = NULL;
 	crawl = NULL;
 	(void)del;
-	if (lst)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!(new))
+		return (NULL);
+	new->content = f(lst->content);
+	new->next = NULL;
+	crawl = new;
+	while (lst->next)
 	{
-		if (!(new = (t_list *)malloc(sizeof(t_list))))
-			return (NULL);
-		new->content = f(lst->content);
-		new->next = NULL;
-		crawl = new;
-		while (lst->next)
-		{
-			lst = lst->next;
-			if (!((crawl->next) = (t_list *)malloc(sizeof(t_list))))
-				return (ft_clear_lst(new, crawl, del));
-			crawl = crawl->next;
-			crawl->content = f(lst->content);
-			crawl->next = NULL;
-		}
+		lst = lst->next;
+		(crawl->next) = (t_list *)malloc(sizeof(t_list));
+		if (!(crawl->next))
+			return (ft_clear_lst(new, crawl, del));
+		crawl = crawl->next;
+		crawl->content = f(lst->content);
 	}
+	crawl->next = NULL;
 	return (new);
 }

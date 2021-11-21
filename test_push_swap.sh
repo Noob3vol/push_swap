@@ -22,7 +22,13 @@ echo "${ARG[0]}" > input_tmp
 
 while [ $I -lt $1 ]
 do
-	echo "${ARG[$I]}" >> input_tmp
+	if [[ $(( $I % 2 )) == 0 ]]
+	then
+		echo "${ARG[$I]}" >> input_tmp
+	else
+		echo "-${ARG[$I]}" >> input_tmp
+	fi
+
 	I=$(( $I + 1 ))
 done
 
@@ -59,4 +65,4 @@ else
 	./push_swap $(cat input) 2> /dev/null | ./checker $(cat input)
 fi
 
-#rm input input_tmp
+rm input input_tmp

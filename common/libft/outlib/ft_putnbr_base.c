@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 22:41:26 by iguidado          #+#    #+#             */
-/*   Updated: 2020/02/07 23:01:03 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/11/20 18:24:17 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static int	ft_check_base(char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (base[i] == '-' || base[i] == '+')
@@ -43,15 +43,17 @@ static void	ft_recurse_putbase(int nbr, char *base, int base_len)
 	if (nbr < -base_len || nbr > base_len)
 		ft_recurse_putbase(nbr / base_len, base, base_len);
 	nbr = nbr % base_len;
-	nbr = (nbr < 0 ? -nbr : nbr);
+	if (nbr < 0)
+		nbr = -nbr;
 	write(1, &base[nbr], 1);
 }
 
-void		ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(int nbr, char *base)
 {
-	int base_len;
+	int	base_len;
 
-	if (!(base_len = ft_check_base(base)))
+	base_len = ft_check_base(base);
+	if (!(base_len))
 	{
 		write(1, "Error, bad base", 15);
 		return ;

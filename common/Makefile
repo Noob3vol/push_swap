@@ -10,7 +10,8 @@ HDR = common.h\
 	stack.h\
 	stack_wrap.h
 
-SRC = ft_check_arg.c\
+SRC = ft_check_input.c\
+      ft_store_stack.c\
       ft_inst_exec.c\
 	ft_stack.c\
 	ft_stack_utils.c\
@@ -55,6 +56,7 @@ clean :
 	-rm -f $(OBJ)
 
 fclean : clean
+	make fclean -C libft/
 	-rm -f $(NAME)
 
 re : fclean $(NAME)
