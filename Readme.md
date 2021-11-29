@@ -57,13 +57,13 @@ Optimisation include pivot choose and using quadratic sort to counter explosion 
 	divided stack part is exported as an array and sorted using an implemented quicksort to find best pivot picking middle element of sorted part
 
 ### Part sorting algorithm  (hiatus)
-	Quadratic Part sorting algorithm is provided to sort small divided part where
+Quadratic Part sorting algorithm is provided to sort small divided part where
 quicksort pivot optimized is less effective. it is actually on hiatus because non optimized
 quadratic sort are not more effective and a lot of work for small result should not hinder
 school cursus progression
 
 ### Launching script
-	A script is provided to test binary. It generate n random number 
+A script is provided to test binary. It generate n random number 
 (only positive, negative number error checking should be done manually) and test
 input with both bonus checker and linux-checker. WIP because it should not be error-prone
 
