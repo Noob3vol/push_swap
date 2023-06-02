@@ -18,6 +18,11 @@ INC = include
 CHECK_SRC = checker.c\
 	    ft_store_inst.c
 
+COMMON_HDR = common.h \
+	libft.h \
+	stack.h \
+	stack_wrap.h 
+
 CHECK_SRC_DIR = Checker/
 
 CHECK_OBJ_DIR = check_obj/
@@ -57,6 +62,8 @@ PUSH_SRC = ft_inst_utils.c \
 	ft_stack_quicksort.c \
 	push_swap.c
 
+PUSH_HDR = push_swap.h
+
 #	ft_choose_part_sort.c
 
 PUSH_OBJ_DIR = Push_obj/
@@ -67,6 +74,8 @@ all : makelib $(PUSH)
 
 makelib :
 	make -C common/
+
+PUSH_HEADER=$(INC)/$(PUSH_HDR) $(INC)/$(COMMON_HDR)
 
 #PUSH INSTRUCTION
 
@@ -87,7 +96,7 @@ $(CHECK_OBJ_DIR) :
 $(CHECK_OBJ_DIR)%.o : $(CHECK_SRC_DIR)%.c
 	$(CC) -I$(INC) -o $@ -c $< $(WFLAG)
 
-$(CHECKER) : $(LIB) $(CHECK_OBJ_DIR) $(CHECK_OBJ) $(INC)/$(CHECK_HEADER)
+$(CHECKER) : $(LIB) $(CHECK_OBJ_DIR) $(CHECK_OBJ) 
 	$(CC) -o $(CHECKER) -I$(INC) $(CHECK_OBJ) $(LIB) $(WFLAG)
 
 bonus : all $(CHECKER)

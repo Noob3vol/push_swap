@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:41:49 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/17 17:03:09 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/08 19:52:32 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 t_op_id	*ft_get_op_id(char *op)
 {
-	static t_op_id	op_table[] =
-	{
-		{"pa", ft_pa_wrap}, {"sa", ft_sa_wrap},
-		{"ra", ft_ra_wrap}, {"rra", ft_rra_wrap},
-		{"pb", ft_pb_wrap}, {"sb", ft_sb_wrap},
-		{"rb", ft_rb_wrap}, {"rrb", ft_rrb_wrap},
-		{"ss", ft_ss_wrap}, {"rr", ft_rr_wrap},
-		{"rrr", ft_rrr_wrap}, {NULL, NULL}
+	static t_op_id	op_table[] = {
+	{"pa", ft_pa_wrap}, {"sa", ft_sa_wrap},
+	{"ra", ft_ra_wrap}, {"rra", ft_rra_wrap},
+	{"pb", ft_pb_wrap}, {"sb", ft_sb_wrap},
+	{"rb", ft_rb_wrap}, {"rrb", ft_rrb_wrap},
+	{"ss", ft_ss_wrap}, {"rr", ft_rr_wrap},
+	{"rrr", ft_rrr_wrap}, {NULL, NULL}
 	};
 	int				i;
 

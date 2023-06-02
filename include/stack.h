@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:41:33 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/03 18:07:10 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/13 21:37:09 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack
 */
 
 t_stack	*ft_init_stack(int value, t_stack *prev);
-void	ft_free_stack(t_stack **stack);
+int		ft_free_stack(t_stack **stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *node);
 
 /*

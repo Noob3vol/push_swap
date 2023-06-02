@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:16:27 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/20 20:01:35 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/08 19:50:23 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_choose_part_sort(t_stack **a, t_stack **beg,
 		ft_part_sort_slct,
 		ft_quicksort,
 		NULL}
-	int				i;
+		int			i;
 
 	part_copy = ft_copy_part(*a, *begin, *end);
 	curr_inst = ft_part_sort[0](part_copy.head, part_copy.begin, part_copy.end);

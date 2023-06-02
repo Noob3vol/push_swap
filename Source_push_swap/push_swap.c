@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/31 18:34:13 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/17 03:08:58 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/13 21:35:03 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,50 @@ t_list	*ft_choose(t_stack **a)
 	return (inst);
 }
 
+int	ft_check_ubiquity(t_stack *a)
+{
+	t_stack	*header;
+	t_stack	*curr;
+
+	curr = a;
+	while (curr->prev)
+	{
+		header = curr->prev;
+		while (header)
+		{
+			if (curr->nbr == header->nbr)
+			{
+				ft_putendl("Error");
+				ft_free_stack(&a);
+				return (0);
+			}
+			header = header->prev;
+		}
+		curr = curr->prev;
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_list	*inst;
 
 	inst = NULL;
+	a = NULL;
 	if (ac == 1)
 		return (0);
 	a = ft_store_stack(ac - 1, av + 1);
-	if (!(a))
-		return (-1);
-	if (!ft_stack_issort(a))
+	if (!(a) || !(ft_check_ubiquity(a)))
 	{
-		if (ac > 130)
-			inst = ft_launch_quicksort(&a);
-		else
-			inst = ft_choose(&a);
+		return (-1);
 	}
+	if (ft_stack_issort(a))
+		return (ft_free_stack(&a));
+	if (ac > 130)
+		inst = ft_launch_quicksort(&a);
+	else
+		inst = ft_choose(&a);
 	ft_lstiter(inst, ft_print_inst);
 	ft_lstclear(&inst, (void (*)(void *))free);
 	return (0);

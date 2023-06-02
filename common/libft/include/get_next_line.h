@@ -6,15 +6,16 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/21 15:53:34 by iguidado          #+#    #+#             */
-/*   Updated: 2020/12/21 15:53:36 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/08 19:53:33 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>
-# ifndef	BUFF_SIZE
+# ifndef BUFF_SIZE
 #  define BUFF_SIZE 8
 # endif
 

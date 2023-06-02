@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:25:15 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/19 15:30:38 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/09 21:48:59 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,18 @@ int	predict_overflow(int nbr, char next_digit, int neg)
 {
 	if (!ft_isdigit(next_digit))
 		return (0);
+	if (nbr > (INT_MAX / 10))
+		return (1);
 	if (neg < 0)
 	{
 		if (nbr >= INT_MAX / 10 && next_digit == '9')
 			return (1);
 	}
 	else
-		if (nbr >= INT_MAX / 10 && next_digit >= '8')
+	{
+		if (nbr == INT_MAX / 10 && next_digit >= '8')
 			return (1);
+	}
 	return (0);
 }
 

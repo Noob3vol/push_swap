@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 16:42:44 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/17 16:55:38 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/13 21:21:35 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*ft_init_stack(int value, t_stack *prev)
 	return (new);
 }
 
-void	ft_free_stack(t_stack **stack)
+int	ft_free_stack(t_stack **stack)
 {
 	t_stack	*prev;
 
@@ -34,4 +34,5 @@ void	ft_free_stack(t_stack **stack)
 		free(*stack);
 		*stack = prev;
 	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: iguidado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:27:37 by iguidado          #+#    #+#             */
-/*   Updated: 2021/11/21 14:38:12 by iguidado         ###   ########.fr       */
+/*   Updated: 2021/12/13 21:15:54 by iguidado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	ft_stackaddnbr_back(t_stack **stacks, int nbr)
 		return (0);
 	}
 	node->nbr = nbr;
+	node->prev = NULL;
 	if (!*stacks)
 		*stacks = node;
 	else
@@ -68,16 +69,16 @@ t_stack	*ft_store_stack(int ac, char **av)
 	int		nbr;
 
 	head = NULL;
-	nbr = 0;
 	while (ac--)
 	{
+		new = NULL;
+		if (!*(av[ac]))
+			return (NULL);
 		while (*(av[ac]))
 		{
-			new = NULL;
 			if ((!ft_atoi_crawl(&av[ac], &nbr))
 				|| !(ft_stackaddnbr_back(&new, nbr)))
 			{
-				ft_putendl_fd("Error", 2);
 				ft_free_stack(&head);
 				return (NULL);
 			}
